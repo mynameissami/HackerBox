@@ -1,7 +1,8 @@
 # from pprint import pp
 # from sys import implementation
 # from typing import no_type_check
-from colorama import *
+#hekko
+from colorama import Fore, Back, Style
 from time import sleep
 import os
 import shutil
@@ -9,6 +10,7 @@ from time import sleep
 # import requests
 # import wget
 import os
+
 from getpass import getuser
 from zipfile import ZipFile
 from plyer import notification
@@ -737,53 +739,39 @@ This Software is licensed to {getpass.getuser()}.
         elif z == "pkg.youtube":  # This basically uses a module called youtube_dl
             # to download youtube videos
             try:
-                def youtube_title_finder():
-                    import requests
-                    from bs4 import BeautifulSoup
-                    resp = requests.get(zxt)
-                    s = BeautifulSoup(resp.text, 'html.parser')
-                    global title
-                    title = s.find("title").text
-                    title = title.replace("- YouTube", "")
-                    return title
-                # importing module
                 import youtube_dl
+                from bs4 import BeautifulSoup
+                import requests
+
+                def youtube_title_finder(link):
+                    resp = requests.get(link)
+                    s = BeautifulSoup(resp.text, 'html.parser')
+                    title = s.find("title").text.replace("- YouTube", "").strip()
+                    return title
+
                 stm = Settings_Manager()
                 stm.reader()
-                if stm.Video_output !=".":
-                    ydl_opts = {
-                        'outtmpl': f'{stm.Video_output}' + '/%(title)s.%(ext)s',
-                    }
-                elif stm.Video_output == ".":
-                     print("Enter the destination (leave blank for current directory)")
-                     destination = str(input(">> ")) or '.'
-                     ydl_opts = {
-                         'outtmpl': f'{destination}' + '/%(title)s.%(ext)s',
-                     }
-                else :
-                    print(f"{Fore.RED}Error in Settings file found! -> Use settings.reset command to reset Settings file.")
-                print(Fore.RESET)
-                def dwl_vid():
-                    youtube_title_finder()
+
+                def get_ydl_opts(destination):
+                    return {'outtmpl': f'{destination}/%(title)s.%(ext)s'}
+
+                def dwl_vid(link):
+                    title = youtube_title_finder(link)
+                    destination = stm.Video_output if stm.Video_output != "." else input("Enter the destination (leave blank for current directory): ").strip() or '.'
+                    ydl_opts = get_ydl_opts(destination)
                     with youtube_dl.YoutubeDL(ydl_opts) as ydl:
-                        mess1 = "The youtube video is being downloaded\n" + title
-                        notification_c(mess1)
-                        ydl.download([zxt])
-                        mess4 = "The youtube video is successfully downloaded\n" + title
-                        notification_c(mess4)
+                        notification_c(f"The youtube video is being downloaded\n{title}")
+                        ydl.download([link])
+                        notification_c(f"The youtube video is successfully downloaded\n{title}")
 
                 channel = 1
-                while (channel == int(1)):
-                    link_of_the_video = input("Enter Video URL: ")
-                    zxt = link_of_the_video.strip()
+                while channel == 1:
+                    link_of_the_video = input("Enter Video URL: ").strip()
+                    dwl_vid(link_of_the_video)
+                    channel = int(input("Enter 1 if you want to download more videos \nEnter 0 if you are done: "))
 
-                    dwl_vid()
-                    channel = int(
-                        input("Enter 1 if you want to download more videos \nEnter 0 if you are done : "))
-
-            except KeyboardInterrupt as exception:
-                KeyboardInterrupt == notification_c(
-                    "The YouTube Download is Stopped\n" + title)
+            except KeyboardInterrupt:
+                notification_c("The YouTube Download is Stopped")
 
                 # Mp3 youtube downloader
         elif z == "pkg.youtube.mp3":
