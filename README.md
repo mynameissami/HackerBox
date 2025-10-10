@@ -47,6 +47,18 @@ Download Now! Check it Out.
   cd HackerBox
   python ./HackerBox.py
 ```
+
+### Dependencies
+
+HackerBox has a few dependencies that need to be installed for full functionality:
+
+```bash
+pip install -r requirements.txt
+```
+
+If you prefer to run with minimal dependencies, the application will still work with reduced functionality:
+- Without `plumbum`: Terminal colors will be disabled
+- Without `plyer`: System notifications will be replaced with console messages
     
 ## Settings.ini - Settings of HackerBox
 Inside view of Settings.ini.

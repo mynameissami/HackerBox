@@ -1,5 +1,5 @@
 Hacker Box - For Pentesters and Ethical Hackers
-Copyright (C) 2024  Muhammad Sami Furqan
+Copyright (C) 2025  Muhammad Sami Furqan
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
