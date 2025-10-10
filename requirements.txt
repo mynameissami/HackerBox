@@ -1,5 +1,49 @@
-# HackerBox dependencies
-plumbum>=1.7.0
-prompt_toolkit>=3.0.0
-plyer>=2.0.0
-requests>=2.25.0
+# Core Dependencies
+python-dotenv>=0.19.0
+colorama>=0.4.4
+requests>=2.28.1
+beautifulsoup4>=4.11.1
+lxml>=4.9.1
+
+# CLI & User Interface
+plumbum>=1.8.0
+prompt_toolkit>=3.0.36
+click>=8.1.3
+rich>=12.5.1
+
+# System & Network
+psutil>=5.9.0
+netifaces>=0.11.0
+scapy>=2.5.0
+python-nmap>=0.7.1
+ipwhois>=1.2.0  # For IP information and WHOIS lookups
+
+# Security & Cryptography
+cryptography>=38.0.1
+pyOpenSSL>=22.1.0
+paramiko>=2.11.0
+
+# Web & Scraping
+beautifulsoup4>=4.11.1
+lxml>=4.9.1
+urllib3>=1.26.12
+
+# Utilities
+python-dateutil>=2.8.2
+tqdm>=4.64.1
+pytz>=2022.2.1
+Pillow>=9.2.0
+
+# Testing & Development
+pytest>=7.2.0
+pytest-cov>=4.0.0
+
+# Optional Dependencies (uncomment if needed)
+# plyer>=2.1.0  # For system notifications
+# speedtest-cli>=2.1.3  # For network speed testing
+# pywin32>=303  # Windows-specific features (if on Windows)
+
+# Optional Dependencies
+# plyer>=2.1.0  # For system notifications
+# youtube-dl>=2021.12.17  # For YouTube downloads
+# speedtest-cli>=2.1.3  # For network speed testing

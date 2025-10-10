@@ -1,13 +1,25 @@
+<div align="center">
+  <img src="https://github.com/mynameissami/CommandLine/blob/main/hackerbox-low-resolution-logo-color-on-transparent-background.png?raw=true" alt="HackerBox Logo" width="300">
+  
+  # HackerBox - Beta
+  
+  [![Python Version](https://img.shields.io/badge/Python-3.11+-blue.svg)](https://www.python.org/)
+  [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+  [![GitHub Stars](https://img.shields.io/github/stars/mynameissami/HackerBox?style=social)](https://github.com/mynameissami/HackerBox/stargazers)
+  
+  A powerful, multi-functional cybersecurity toolkit for security professionals and enthusiasts.
+</div>
 
-![Logo](https://github.com/mynameissami/CommandLine/blob/main/hackerbox-low-resolution-logo-color-on-transparent-background.png?raw=true)
+## Table of Contents
 
-# HackerBox - Beta
-MultiFunctional Program made with Python - 3.11. 
-HackerBox software is designed specifically for penetration testing and cyber security purposes.
-Various functionalities are provided with this software, such as: XSS Bugs exploiter, Admin Panel Finder, and many other useful functions.  
-
-
-
+- [Features](#-features)
+- [Quick Start](#-quick-start)
+- [Configuration](#-configuration)
+- [Contributing](#-contributing)
+- [Documentation](#-documentation)
+- [FAQ](#-faq)
+- [License](#-license)
+- [About Me](#-about-me)
 
 ## Features
 
@@ -15,7 +27,7 @@ Various functionalities are provided with this software, such as: XSS Bugs explo
 - DDoS / DoS Attackers.
 - IP Inforamtion and Configuration.
 - BruteForcers.
-- Cross platform.
+{{ ... }}
 - Host IP Finders.
 - YouTube video Downloader.
 - Pinging websites.
@@ -33,12 +45,31 @@ Various functionalities are provided with this software, such as: XSS Bugs explo
 
 
 
-## Documentation
+## 🚀 Quick Start
 
-[Click Here to View Documentation.](https://linktodocumentation)
+### Prerequisites
+- Python 3.11+
+- pip (Python package manager)
 
+### Installation
 
-## Installation
+```bash
+# Clone the repository
+git clone https://github.com/mynameissami/HackerBox.git
+cd HackerBox
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run HackerBox
+python HackerBox.py
+```
+
+## 📚 Documentation
+
+For detailed documentation, visit our [Documentation](https://linktodocumentation).
+
+## ⚙️ Configuration
 
 Download Now! Check it Out.
 
@@ -139,42 +170,76 @@ No, This software is under Development and will be released soon.
 
 
 
-## About Me 
-👩‍💻 I'm currently working on HackerBox
+## 🤝 Contributing
 
-🧠 I'm currently learning  React , JavaScript
+We welcome contributions from the community! Here's how you can help:
 
-📫 samifurqanakram@gmail.com
+1. **Fork** the repository
+2. Create a new branch: `git checkout -b feature/your-feature`
+3. Make your changes and commit: `git commit -m 'Add some feature'`
+4. Push to the branch: `git push origin feature/your-feature`
+5. Open a **Pull Request**
 
-😄 He/Him
+### 🐛 Report Bugs
+Found a bug? Please [open an issue](https://github.com/mynameissami/HackerBox/issues) with:
+- Description of the bug
+- Steps to reproduce
+- Expected vs actual behavior
+- Screenshots (if applicable)
 
-⚡️ [Portfolio](https://samidev.rf.gd)
+### 💡 Feature Requests
+Have an idea? [Suggest a feature](https://github.com/mynameissami/HackerBox/issues) and help us improve HackerBox!
 
+## 📁 Project Structure
 
-## 🔗 Links
-[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white&color=9cf)](https://samidev.rf.gd)
-[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](www.linkedin.com/in/msamighazi)
-[![twitter](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/Sami87305624)
+```
+HackerBox/
+├── Dics/                     # Dictionaries and wordlists
+│   ├── AdminPanels/          # Admin panel paths
+│   ├── PassLists/            # Password lists for brute force
+│   ├── PayloadsTextFiles/    # XSS and other attack payloads
+│   └── UserNames/            # Username lists
+│
+├── Scripts/                  # Core security tools
+│   ├── Admin_Panel_Finder.py
+│   ├── Bruteforcer.py
+│   ├── CrossSiteScriptingChecker.py
+│   ├── Dos.py
+│   ├── Nmap-t.py
+│   ├── WebAnalyzer.py
+│   ├── Web_bruteforce.py
+│   ├── ftp_bruteforcer.py
+│   └── live_port_discovery.py
+│
+├── Icons/                    # Application icons and assets
+│
+├── HackerBox.py              # Main application entry point
+├── command_completion.py     # Tab completion functionality
+├── commands.py               # Command definitions and registry
+├── config.py                 # Configuration settings
+├── settings.py               # User settings management
+├── utils.py                  # Utility functions
+├── requirements.txt          # Python dependencies
+└── README.md                 # This file
+```
 
+## 👨‍💻 About Me
 
-## 🛠 Skills
-Python , Html , Javascript , React , C# , C++ , more...
+<div align="center">
+  <p>👋 Hi, I'm Sami - A passionate developer and cybersecurity enthusiast</p>
+  
+  [![Portfolio](https://img.shields.io/badge/Portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white&color=9cf)](https://samidev.rf.gd)
+  [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/msamighazi)
+  [![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/Sami87305624)
+</div>
 
+## 📜 License
 
-## Authors
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-- [@mynameissami](https://www.github.com/mynameissami)
+---
 
-
-## Support
-
-For support, email samifurqanakram@gmail.com
-
-
-## Related
-
-Here are some related projects
-
-[Command-Line](https://github.com/mynameissami/CommandLine)       
-[DDoS/DoS Attack Simulator](https://github.com/mynameissami/DDoS-Simulator)
-
+<div align="center">
+  <p>Built with ❤️ by <a href="https://github.com/mynameissami">Sami</a></p>
+  <p>If you find this project useful, consider giving it a ⭐️</p>
+</div>
