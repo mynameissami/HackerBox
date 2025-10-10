@@ -5,7 +5,6 @@
   
   [![Python Version](https://img.shields.io/badge/Python-3.11+-blue.svg)](https://www.python.org/)
   [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
-  [![GitHub Stars](https://img.shields.io/github/stars/mynameissami/HackerBox?style=social)](https://github.com/mynameissami/HackerBox/stargazers)
   
   A powerful, multi-functional cybersecurity toolkit for security professionals and enthusiasts.
 </div>
@@ -63,6 +62,39 @@ pip install -r requirements.txt
 
 # Run HackerBox
 python HackerBox.py
+```
+
+## 📁 Project Structure
+
+```
+HackerBox/
+├── Dics/                     # Dictionaries and wordlists
+│   ├── AdminPanels/          # Admin panel paths
+│   ├── PassLists/            # Password lists for brute force
+│   ├── PayloadsTextFiles/    # XSS and other attack payloads
+│   └── UserNames/            # Username lists
+│
+├── Scripts/                  # Core security tools
+│   ├── Admin_Panel_Finder.py
+│   ├── Bruteforcer.py
+│   ├── CrossSiteScriptingChecker.py
+│   ├── Dos.py
+│   ├── Nmap-t.py
+│   ├── WebAnalyzer.py
+│   ├── Web_bruteforce.py
+│   ├── ftp_bruteforcer.py
+│   └── live_port_discovery.py
+│
+├── Icons/                    # Application icons and assets
+│
+├── HackerBox.py              # Main application entry point
+├── command_completion.py     # Tab completion functionality
+├── commands.py               # Command definitions and registry
+├── config.py                 # Configuration settings
+├── settings.py               # User settings management
+├── utils.py                  # Utility functions
+├── requirements.txt          # Python dependencies
+└── README.md                 # This file
 ```
 
 ## 📚 Documentation
@@ -165,10 +197,6 @@ No, It depends how use the Features of this software.
 
 No, This software is under Development and will be released soon.
 
-## License
-[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
-
-
 
 ## 🤝 Contributing
 
@@ -190,38 +218,6 @@ Found a bug? Please [open an issue](https://github.com/mynameissami/HackerBox/is
 ### 💡 Feature Requests
 Have an idea? [Suggest a feature](https://github.com/mynameissami/HackerBox/issues) and help us improve HackerBox!
 
-## 📁 Project Structure
-
-```
-HackerBox/
-├── Dics/                     # Dictionaries and wordlists
-│   ├── AdminPanels/          # Admin panel paths
-│   ├── PassLists/            # Password lists for brute force
-│   ├── PayloadsTextFiles/    # XSS and other attack payloads
-│   └── UserNames/            # Username lists
-│
-├── Scripts/                  # Core security tools
-│   ├── Admin_Panel_Finder.py
-│   ├── Bruteforcer.py
-│   ├── CrossSiteScriptingChecker.py
-│   ├── Dos.py
-│   ├── Nmap-t.py
-│   ├── WebAnalyzer.py
-│   ├── Web_bruteforce.py
-│   ├── ftp_bruteforcer.py
-│   └── live_port_discovery.py
-│
-├── Icons/                    # Application icons and assets
-│
-├── HackerBox.py              # Main application entry point
-├── command_completion.py     # Tab completion functionality
-├── commands.py               # Command definitions and registry
-├── config.py                 # Configuration settings
-├── settings.py               # User settings management
-├── utils.py                  # Utility functions
-├── requirements.txt          # Python dependencies
-└── README.md                 # This file
-```
 
 ## 👨‍💻 About Me
 
@@ -233,9 +229,6 @@ HackerBox/
   [![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/Sami87305624)
 </div>
 
-## 📜 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
