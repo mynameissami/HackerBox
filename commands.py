@@ -1,4 +1,3 @@
-"""Command handler module for HackerBox."""
 
 from abc import ABC, abstractmethod
 from typing import Dict, Type, Optional, Callable, Any
@@ -360,7 +359,7 @@ class HelpCommand(Command):
             console.print()
             console.print(security_table)
             console.print()
-            console.print("For more information, visit: [link]https://github.com/samifurqan/hackerbox[/link]")
+            console.print("For more information, visit: [link]https://github.com/mynameissami/HackerBox[/link]")
             console.print()
 
             logger.info("Help command executed successfully")

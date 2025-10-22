@@ -145,7 +145,7 @@ if __name__ == "__main__":
     hb = HackerBox()
 
     print("Hacker Box")
-    print("Copyright (c) M.Sami. All Rights Reserved.")
+    print("Copyright (c). All Rights Reserved.")
     print("Acitve Internet connection is reqired to run things properly.")
 
     # Main command loop
