@@ -89,7 +89,6 @@ class HackerBox:
         self.settings = self.settings_manager.get_settings()
         self.command_history = InMemoryHistory()
         self.completer = HackerBoxCompleter(self.command_registry)
-
     def usercommand(self, command=None):
         try:
             # Use command parameter if provided, otherwise check for z attribute
@@ -146,7 +145,7 @@ if __name__ == "__main__":
 
     print("Hacker Box")
     print("Copyright (c). All Rights Reserved.")
-    print("Acitve Internet connection is reqired to run things properly.")
+    print("Active Internet connection is required to run things properly.")
 
     # Main command loop
     while True:
@@ -154,14 +153,14 @@ if __name__ == "__main__":
             # Get user input with command completion if enabled
             if hb.settings.prompt_autocomplete:
                 user_input = prompt(
-                    "HackerBox> ",
+                    f"HackerBox ~ {os.getlogin()}> ",
                     history=hb.command_history,
                     completer=hb.completer,
                     complete_while_typing=True,
                 )
             else:
                 # Fall back to standard input if autocomplete is disabled
-                user_input = input("HackerBox> ")
+                user_input = input(f"HackerBox ~ {os.getlogin()}> ")
 
             # Set the input to the z attribute and execute the command
             hb.z = user_input

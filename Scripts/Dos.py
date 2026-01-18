@@ -1,4 +1,4 @@
-def dos():
+class main():
     import socket
 
     target = input("Enter target ip: ")

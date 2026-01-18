@@ -12,6 +12,7 @@ import importlib
 import sys
 from importlib.machinery import SourceFileLoader
 
+from Scripts import AI_cli
 from utils import show_notification, show_progress_bar, make_request
 from settings import Settings
 from config import (
@@ -40,7 +41,6 @@ def load_script_module(script_name: str) -> Any:
         
     # Handle special characters in filename (like hyphens)
     if '-' in script_name:
-        script_path = os.path.join(BASE_DIR, 'Scripts', script_name)
         return SourceFileLoader(script_name.replace('.py', '').replace('-', '_'), script_path).load_module()
     else:
         # Use standard import for normal filenames
@@ -90,7 +90,7 @@ class Command(ABC):
 class AboutCommand(Command):
     def execute(self, *args, **kwargs) -> None:
         try:
-            print("HackerBox is an Opensource Program by Muhammad Sami Furqan.")
+            print("HackerBox is an Opensource Program for pentesters and ethical hackers.")
             logger.info("About command executed successfully")
         except Exception as e:
             logger.error(f"Failed to execute about command: {e}")
@@ -230,6 +230,59 @@ class NmapCommand(Command):
             logger.error(f"Failed to execute Nmap command: {e}")
             raise CommandExecutionError(f"Failed to run Nmap: {e}")
 
+class Ai_run(Command):
+    def AI_initialize(self):
+        try:
+           pass 
+        except Exception as e:
+            raise e
+
+    def execute(self, *args, **kwargs) -> None:
+      try:
+        # Process arguments assuming format like: ai reasoning_effort medium
+        model_id = None
+        reasoning_effort = None
+        
+        # Process arguments in pairs if they follow key-value format
+        i = 0
+        while i < len(args):
+            if args[i] == 'reasoning_effort' and i + 1 < len(args):
+                reasoning_effort = args[i + 1]
+                i += 2  # Skip both key and value
+            elif args[i] == 'model' and i + 1 < len(args):
+                model_id = args[i + 1]
+                i += 2
+            else:
+                # If not a known key, assume it's a direct value
+                # This handles cases like: ai medium or ai model_name
+                if args[i] in ['medium', 'low', 'high']:
+                    reasoning_effort = args[i]
+                elif model_id is None:
+                    model_id = args[i]
+                i += 1
+        
+        # Override with keyword arguments if provided
+        model_id = kwargs.get('model_id', model_id)
+        reasoning_effort = kwargs.get('reasoning_effort', reasoning_effort)
+        
+        temperature = kwargs.get('temperature', 1)
+        
+        module = load_script_module('AI_cli')
+        if hasattr(module, 'AI_cli'):
+            module.AI_cli(
+                temperature=temperature, 
+                model_id=model_id, 
+                reasoning_effort=reasoning_effort
+            )
+        elif hasattr(module, 'main'):
+            module.main()
+        else:
+            print("AI_cli module loaded but function not found")
+            return
+        logger.info("AI_cli command executed successfully")
+      except Exception as e:
+        raise e
+        logger.info("The AI_cli command has not been executed!")
 class WebAnalyzerCommand(Command):
     def execute(self, *args, **kwargs) -> None:
         try:
@@ -597,7 +650,7 @@ class SystemInfoCommand(Command):
             if has_psutil:
                 # Memory information
                 mem = psutil.virtual_memory()
-                print(f"\n===== MEMORY INFORMATION =====")
+                print(f"\n\tMEMORY INFORMATION")
                 print(f"Total: {mem.total / (1024**3):.2f} GB")
                 print(f"Available: {mem.available / (1024**3):.2f} GB")
                 print(f"Used: {mem.used / (1024**3):.2f} GB ({mem.percent}%)")
@@ -626,7 +679,7 @@ class CheckUpdatesCommand(Command):
     def execute(self, *args, **kwargs) -> None:
         try:
             print("Checking for updates...")
-            show_progress_bar("Connecting to GitHub", 0.5)
+            # show_progress_bar("Connecting to GitHub", 0.5)
             
             try:
                 # Try to import requests but don't fail if it's not available
@@ -644,7 +697,7 @@ class CheckUpdatesCommand(Command):
                     if response.status_code == 200:
                         latest_release = response.json()
                         latest_version = latest_release.get('tag_name', 'unknown')
-                        current_version = "1.0"  # This should be defined somewhere in your app
+                        current_version = "1.0"  
                         
                         print(f"Current version: {current_version}")
                         print(f"Latest version: {latest_version}")
@@ -656,10 +709,13 @@ class CheckUpdatesCommand(Command):
                             show_notification("HackerBox Update Available", f"Version {latest_version} is now available!")
                         else:
                             print("\nYou are using the latest version of HackerBox.")
+                    elif response.status_code == 400:
+                        print("There are no releases available yet! We're always working on making HackerBox better :)")
                     else:
-                        print(f"Failed to check for updates. Status code: {response.status_code}")
+                        print(f"Unknown response from the API, standby and try later! -> Response Code : {response.status_code}") 
                 except Exception as e:
                     print(f"Error checking for updates: {e}")
+                    print(f"Status Code : {response.status_code}")
             else:
                 print("The 'requests' package is required to check for updates.")
                 print("Run: pip install requests")
@@ -723,6 +779,8 @@ class CommandRegistry:
             'ftpbf': FTPBruteforceCommand,
             'port-discovery': LivePortDiscoveryCommand,
             'pd': LivePortDiscoveryCommand,
+            'ai' : Ai_run,
+        'Artifical-Intelligence' : Ai_run,
         }
 
     def register_command(self, name: str, command_class: Type[Command]) -> None:

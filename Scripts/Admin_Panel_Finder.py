@@ -1,7 +1,4 @@
-
-
 """Admin Panel Finder module for HackerBox."""
-
 import sys
 from pathlib import Path
 from colorama import Fore

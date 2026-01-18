@@ -27,6 +27,7 @@ ENV/
 
 # Personal Testing Files
 My Files/
+Scripts/.env
 # IDE
 .idea/
 .vscode/
