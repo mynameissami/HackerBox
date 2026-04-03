@@ -6,11 +6,11 @@ from pathlib import Path
 BASE_DIR = Path(__file__).parent
 
 # Dictionary paths
-DICS_DIR = BASE_DIR / 'Dics'
-ADMIN_PANELS_DIR = DICS_DIR / 'AdminPanels'
-PASSLISTS_DIR = DICS_DIR / 'PassLists'
-USERNAMES_DIR = DICS_DIR / 'UserNames'
-PAYLOADS_DIR = DICS_DIR / 'PayloadsTextFiles'
+DICT_DIR = BASE_DIR / 'Dict'
+ADMIN_PANELS_DIR = DICT_DIR / 'AdminPanels'
+PASSLISTS_DIR = DICT_DIR / 'PassLists'
+USERNAMES_DIR = DICT_DIR / 'UserNames'
+PAYLOADS_DIR = DICT_DIR / 'PayloadsTextFiles'
 
 # Default files
 DEFAULT_ADMIN_PANELS = ADMIN_PANELS_DIR / 'admin_panels.txt'
